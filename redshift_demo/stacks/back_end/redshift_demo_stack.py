@@ -105,8 +105,9 @@ class RedshiftDemoStack(core.Stack):
             self,
             "RedshiftCluster",
             value=f"{demo_cluster.attr_endpoint_address}",
-            description=f"RedshiftCluster Endpoint"
+            description="RedshiftCluster Endpoint",
         )
+
         output_2 = core.CfnOutput(
             self,
             "RedshiftClusterPassword",
@@ -116,13 +117,12 @@ class RedshiftDemoStack(core.Stack):
                 f"#/secret?name="
                 f"{comments_cluster_secret.secret_arn}"
             ),
-            description=f"Redshift Cluster Password in Secrets Manager"
+            description="Redshift Cluster Password in Secrets Manager",
         )
+
         output_3 = core.CfnOutput(
             self,
             "RedshiftIAMRole",
-            value=(
-                f"{_rs_cluster_role.role_arn}"
-            ),
-            description=f"Redshift Cluster IAM Role Arn"
+            value=(f"{_rs_cluster_role.role_arn}"),
+            description="Redshift Cluster IAM Role Arn",
         )
